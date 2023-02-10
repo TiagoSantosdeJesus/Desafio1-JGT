@@ -1,2 +1,2 @@
-# Desafio1-JGT
-Desafio. JGT - Plataforma de Clientes e consultores
+# Desafio JGT
+### Desafio 1: Plataforma de Clientes e consultores.
