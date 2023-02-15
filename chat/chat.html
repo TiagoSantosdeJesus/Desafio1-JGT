@@ -1,0 +1,59 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+     <title> ChatJGT </title>
+     <link rel="stylesheet" type="text/css" href="/css/style1.css" />
+     
+</head>
+<body>
+     <div id="historico_mensagens"></div>
+     <form id=’chat’>
+         <input type='text' id='texto_mensagem' name='texto_mensagem' />
+         <input type='submit' value='Enviar mensagem!' />
+     </form>
+     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+     <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+     <script type="text/javascript">
+        var socket = io.connect();
+
+        $("form#chat").submit(function(e){
+             e.preventDefault();
+             socket.emit("enviar mensagem", $(this).find("#texto_mensagem").val(), function(){
+                  $("form#chat #texto_mensagem").val("");
+             });
+        });
+
+        io.on("connection", function(socket){
+            socket.on("enviar mensagem", function(mensagem_enviada, callback){
+                 mensagem_enviada = "[ " + pegarDataAtual() + " ]: " + mensagem_enviada;
+
+                io.sockets.emit("atualizar mensagens", mensagem_enviada);
+                callback();
+             });
+        });
+            function pegarDataAtual(){
+            var dataAtual = new Date();
+            var dia = (dataAtual.getDate()<10 ? '0' : '') + dataAtual.getDate();
+            var mes = ((dataAtual.getMonth() + 1)<10 ? '0' : '') + (dataAtual.getMonth() + 1);
+            var ano = dataAtual.getFullYear();
+            var hora = (dataAtual.getHours()<10 ? '0' : '') + dataAtual.getHours();
+            var minuto = (dataAtual.getMinutes()<10 ? '0' : '') + dataAtual.getMinutes();
+            var segundo = (dataAtual.getSeconds()<10 ? '0' : '') + dataAtual.getSeconds();
+
+            var dataFormatada = dia + "/" + mes + "/" + ano + " " + hora + ":" + minuto + ":" + segundo;
+            return dataFormatada;
+        }
+    
+        $("form#chat").submit(function(e){
+             // Conteúdo da função
+        });
+            
+        socket.on("atualizar mensagens", function(mensagem){
+        var mensagem_formatada = $("<p />").text(mensagem);
+                 $("#historico_mensagens").append(mensagem_formatada);
+        });
+
+    </script>
+</body>
+</html>
