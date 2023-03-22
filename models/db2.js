@@ -1,7 +1,6 @@
-
 const Sequelize = require('sequelize');
 
-const sequelize = new Sequelize('upconsult', 'root', 'Khadidja', {
+const sequelize = new Sequelize('upconsult', 'root', '1234', {
     host: 'localhost',
     port: 3306,
     dialect: 'mysql',
@@ -10,4 +9,4 @@ const sequelize = new Sequelize('upconsult', 'root', 'Khadidja', {
     } 
 })
 
-module.exports = sequelize; 
+module.exports = sequelize;
