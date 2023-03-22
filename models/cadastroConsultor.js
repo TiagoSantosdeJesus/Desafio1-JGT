@@ -1,6 +1,7 @@
-const db = require('./db2');
+const Seq = require('sequelize');
+const database = require('./db2');
 
-const Cadastro_Consultor = db2.sequelize.define('Cadastro_Consultor',
+const Cadastro_Consultor = database.sequelize.define('Cadastro_Consultor',
 {
     Nome:
     {
@@ -9,7 +10,7 @@ const Cadastro_Consultor = db2.sequelize.define('Cadastro_Consultor',
     },
     CPF_CNPJ:
     {
-        type: Seq.INT,
+        type: Seq.INTEGER,
         primaryKey: true,
         allowNull: false
     },
