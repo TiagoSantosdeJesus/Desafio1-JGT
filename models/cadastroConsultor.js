@@ -1,52 +1,51 @@
-const Seq = require('sequelize');
-const database = require('./db2');
+const seq = require('sequelize');
+const db2 = require('./db2');
 
-const Cadastro_Consultor = database.sequelize.define('Cadastro_Consultor',
+const Cadastro_Consultor = db2.define('Cadastro_Consultor',
 {
     Nome:
     {
-        type: Seq.STRING,
+        type: seq.STRING,
         allowNull: false
     },
     CPF_CNPJ:
     {
-        type: Seq.INTEGER,
+        type: seq.INTEGER,
         primaryKey: true,
         allowNull: false
     },
     Email:
     {
-        type: Seq.STRING,
+        type: seq.STRING,
         allowNull: false
     },
     Senha:
     {
-        type: Seq.STRING,
+        type: seq.STRING,
         allowNull: false
     },
     Endereco:
     {
-        type: Seq.STRING,
+        type: seq.STRING,
         allowNull: false
     },
-    Data_Nasc:
-    {
-        type: Seq.DATE,
-        allowNull: false
+    DataNasc: {
+        type: seq.DATE,
+        allowNull: true
     },
     Sexo:
     {
-        type: db.Sequelize.CHAR,
+        type: seq.CHAR,
         allowNull: false
     },
     Formacao:
     {
-        type: Seq.STRING,
+        type: seq.STRING,
         allowNull: false
     },
     Anexo_Docs:
     {
-        type: Seq.LONGBLOB,
+        type: seq.BLOB,
         allowNull: false
     }
 });
