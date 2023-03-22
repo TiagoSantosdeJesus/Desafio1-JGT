@@ -1,7 +1,7 @@
 const db2 = require('./db2');
-const seq = db2.Sequelize 
+const seq = require ('sequelize');
 
-const CadastroEmpresa = db.sequelize.define('Cadastro_Empresa', {
+const CadastroEmpresa = db2.define('Cadastro_Empresa', {
     Nome_responsavel: {
         type: seq.STRING,
         allowNull: false
@@ -11,7 +11,7 @@ const CadastroEmpresa = db.sequelize.define('Cadastro_Empresa', {
         allowNull: false
     },    
     CPF_CNPJ: {
-        type: seq.INT,
+        type: seq.INTEGER,
         primaryKey: true,
         allowNull: false
     },   
@@ -20,7 +20,7 @@ const CadastroEmpresa = db.sequelize.define('Cadastro_Empresa', {
         allowNull: false
     },   
     Senha: {
-        type: seq.INT,
+        type: seq.INTEGER,
         allowNull: false
     },   
     DataNasc_Criacao: {
