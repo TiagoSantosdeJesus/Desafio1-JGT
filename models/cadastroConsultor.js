@@ -50,4 +50,5 @@ const Cadastro_Consultor = db2.define('Cadastro_Consultor',
     }
 });
 
+cadastroConsultor.sync();
 module.exports = Cadastro_Consultor;
