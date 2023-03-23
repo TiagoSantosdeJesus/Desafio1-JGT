@@ -33,4 +33,5 @@ const CadastroEmpresa = db2.define('Cadastro_Empresa', {
     }   
 })
     
+CadastroEmpresa.sync();
 module.exports = CadastroEmpresa;
