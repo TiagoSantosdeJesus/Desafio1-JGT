@@ -8,7 +8,7 @@ const Cadastro_Consultor = db2.define('Cadastro_Consultor',
         type: seq.STRING,
         allowNull: false
     },
-    CPF_CNPJ:
+    CNPJ:
     {
         type: seq.INTEGER,
         primaryKey: true,
@@ -50,5 +50,5 @@ const Cadastro_Consultor = db2.define('Cadastro_Consultor',
     }
 });
 
-cadastroConsultor.sync();
+//cadastroConsultor.sync();
 module.exports = Cadastro_Consultor;
