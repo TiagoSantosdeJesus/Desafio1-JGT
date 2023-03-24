@@ -10,7 +10,7 @@ const CadastroEmpresa = db2.define('Cadastro_Empresa', {
         type: seq.STRING,
         allowNull: false
     },    
-    CPF_CNPJ: {
+    CNPJ: {
         type: seq.INTEGER,
         primaryKey: true,
         allowNull: false
@@ -33,5 +33,5 @@ const CadastroEmpresa = db2.define('Cadastro_Empresa', {
     }   
 })
     
-CadastroEmpresa.sync();
+// CadastroEmpresa.sync();
 module.exports = CadastroEmpresa;
